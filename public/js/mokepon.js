@@ -142,6 +142,7 @@ let mapabackground = new Image();
 mapabackground.src = './assets/mokemap.png';
 let alturaQueBuscamos;
 let anchoDelMapa = window.innerWidth - 20;
+let servidorURL = '';
 const anchoMaximoDelMapa = 350;
 
 if(anchoDelMapa > anchoMaximoDelMapa) {
@@ -164,7 +165,7 @@ capipepo.ataques.push(...CAPIPEPO_ATAQUES)
 ratigueya.ataques.push(...RATIGUEYA_ATAQUES)
 tucapalma.ataques.push(...TUCAPALMA_ATAQUES)
 pydos.ataques.push(...PYDOS_ATAQUES)
-langostelvis.ataques.push(...LANGOSTELVIS_ATAQUES)
+langostelvis.ataques.push(...TUCAPALMA_ATAQUES)
 
 //#endregion
 
@@ -183,6 +184,18 @@ mokepones.push(hipodoge, capipepo, ratigueya, tucapalma, pydos, langostelvis);
 //#endregion
 
 //#region FUNCIONES
+
+
+// Primero obtenemos la IP desde el backend
+function obtenerIpLocal(){  
+    fetch('/api/ip')
+    .then(res => res.json())
+    .then(data => {
+    console.log('IP obtenida del servidor:', data.ip);
+    servidorURL = `http://${data.ip}:8080`;
+  // iniciarJuego();
+    })
+}
 
 function iniciarJuego(){    
     seccionAtaque.style.display = 'none';
@@ -214,8 +227,9 @@ function iniciarJuego(){
     unirseAlJuego();
 }
 
-function unirseAlJuego() {
-    fetch("http://192.168.1.4:8080/unirse")
+function unirseAlJuego() {  
+    obtenerIpLocal()  
+    fetch(`${servidorURL}/unirse`)
         .then(function (res){
             console.log(res)
             if (res.ok){
@@ -261,7 +275,8 @@ function seleccionarMascotaJugador(){
 }
 
 function seleccionarMokepon(mascotaJugador) {
-    fetch(`http://192.168.1.4:8080/mokepon/${jugadorId}`, {
+    obtenerIpLocal()
+    fetch(`${servidorURL}/mokepon/${jugadorId}`, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -333,7 +348,8 @@ function secuenciaAtaque() {
 }
 
 function enviarAtaques() {
-    fetch(`http://192.168.1.4:8080/mokepon/${jugadorId}/ataques`, {
+    obtenerIpLocal()
+    fetch(`${servidorURL}/mokepon/${jugadorId}/ataques`, {
         method: "post",
         headers: {
             "Content-Type" : "application/json"
@@ -347,7 +363,8 @@ function enviarAtaques() {
 }
 
 function obtenerAtaques(){
-    fetch(`http://192.168.1.4:8080/mokepon/${enemigoId}/ataques`)
+    obtenerIpLocal()
+    fetch(`${servidorURL}/mokepon/${enemigoId}/ataques`)
         .then(function (res) {
             if (res.ok) {
                 res.json()
@@ -480,7 +497,8 @@ function pintarCanvas() {
 }
 
 function enviarPosicion(x, y) {
-    fetch(`http://192.168.1.4:8080/mokepon/${jugadorId}/posicion`, {
+    obtenerIpLocal()
+    fetch(`${servidorURL}/mokepon/${jugadorId}/posicion`, {
         method: "post",
         headers: {
             "Content-Type": "application/json"

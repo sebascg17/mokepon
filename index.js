@@ -6,21 +6,26 @@ const app = express()
 app.use(express.static('public'))
 app.use(cors())
 app.use(express.json())
-const os = require('os')
+const os = require('os');
 
-function obtenerIPLocal() {
+// función que obtiene la IP local
+function obtenerIpLocal() {
     const interfaces = os.networkInterfaces();
-    for (const nombre in interfaces) {
-        for (const interfaz of interfaces[nombre]) {
-            if (interfaz.family === 'IPv4' && !interfaz.internal) {
-                return interfaz.address;
+    for (let nombre in interfaces) {
+        for (let i of interfaces[nombre]) {
+            if (i.family === 'IPv4' && !i.internal) {
+                return i.address;
             }
         }
     }
     return 'localhost';
 }
 
-const ipServidor = obtenerIPLocal();
+const ipServidor = obtenerIpLocal();
+
+app.get('/api/ip', (req, res) => {
+    res.send({ ip: ipServidor });
+});
 
 const jugadores = []
 
