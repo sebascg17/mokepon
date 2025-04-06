@@ -52,6 +52,7 @@ Ejm: Escribes en la barra de direcciones del navegador el enlace del ip:
 
 Una vez ingresado cada jugador, eliges tu mascota y le pinchas Seleccionar.
 Cuando ambos hayan seleccionado sus mascotan podran visualizarlo de esta manera...
+
 ![image](https://github.com/user-attachments/assets/bbd78d77-eaf2-45d7-8bb7-9cc29f3e1a08)
 
 
