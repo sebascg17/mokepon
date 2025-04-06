@@ -25,35 +25,35 @@ Este es un proyecto web inspirado en Pokémon, donde puedes seleccionar tu Mokep
 
 1. Clona este repositorio:
 
-bash:
-git clone https://github.com/sebascg17/mokepon
+  bash:
+  git clone https://github.com/sebascg17/mokepon
 
 
 2. Instala las dependencias:
 
-bash:
-npm install
+  bash:
+  npm install
 
-3.Inicia el servidor:
+3. Inicia el servidor:
 
-bash:
-node index.js
-En la terminal sale este mensaje: 
-Servidor en: http://localhost:8080 o http://192.168.x.x:8080 (enlace de tu ip)
-
-Para abrilo desde tu navegador:
-Le das Ctrl + Click al localhost: http://localhost:8080 o al enlace de tu ip.
-Se Abre index.html desde la carpeta public en tu navegador. Asegúrate de que el servidor esté corriendo en localhost:8080.
-
-Para que se una otro jugador:
-Simplemente el otro jugador se puede conectar desde otro dispositivo abriendo el navegador e ingresando al mismo enlace de ip.
-Ejm: Escribes en la barra de direcciones del navegador el enlace del ip:
-192.168.x.x:8080 
-
-Una vez ingresado cada jugador, eliges tu mascota y le pinchas Seleccionar.
-Cuando ambos hayan seleccionado sus mascotan podran visualizarlo de esta manera...
-
-![image](https://github.com/user-attachments/assets/bbd78d77-eaf2-45d7-8bb7-9cc29f3e1a08)
+  bash:
+  node index.js
+  En la terminal sale este mensaje: 
+  Servidor en: http://localhost:8080 o http://192.168.x.x:8080 (enlace de tu ip)
+  
+  Para abrilo desde tu navegador:
+  Le das Ctrl + Click al localhost: http://localhost:8080 o al enlace de tu ip.
+  Se Abre index.html desde la carpeta public en tu navegador. Asegúrate de que el servidor esté corriendo en localhost:8080.
+  
+  Para que se una otro jugador:
+  Simplemente el otro jugador se puede conectar desde otro dispositivo abriendo el navegador e ingresando al mismo enlace de ip.
+  Ejm: Escribes en la barra de direcciones del navegador el enlace del ip:
+  192.168.x.x:8080 
+  
+  Una vez ingresado cada jugador, eliges tu mascota y le pinchas Seleccionar.
+  Cuando ambos hayan seleccionado sus mascotan podran visualizarlo de esta manera...
+  
+  ![image](https://github.com/user-attachments/assets/bbd78d77-eaf2-45d7-8bb7-9cc29f3e1a08)
 
 
 📂 Estructura del Proyecto
